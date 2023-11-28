@@ -25,5 +25,11 @@ createApp({
             ]
 
         }
+    },
+    methods: {
+        delete() {
+            this.toDoList = this.toDoList.filter(todo => todo.task !== task);
+
+        },
     }
 }).mount('#app')
