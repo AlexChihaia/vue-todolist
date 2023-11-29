@@ -1,5 +1,4 @@
 'use strict';
-
 const { createApp } = Vue;
 
 createApp({
@@ -22,14 +21,27 @@ createApp({
                     task: 'Organizzare anniversario',
                     done: true,
                 },
-            ]
-
-        }
+            ],
+            newTask: null,
+        };
     },
-    methods: {
-        delete() {
-            this.toDoList = this.toDoList.filter(todo => todo.task !== task);
 
+    methods: {
+        removeTask(index) {
+            this.toDoList.splice(index, 1);
         },
-    }
+        addTask() {
+            if (this.newTask.trim() === '') {
+                return;
+            }
+            else {
+                this.toDoList.push({ task: this.newTask, done: false });
+                this.newTask = null;
+            }
+        },
+        doneTask(index) {
+            this.toDoList[index].done = !this.toDoList[index].done;
+        },
+    },
+
 }).mount('#app')
