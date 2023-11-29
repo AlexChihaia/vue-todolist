@@ -35,7 +35,7 @@
                     @keyup.enter="addTask">
                 <button class="btn btn-outline-secondary" type="button" id="add-task" @click="addTask">Add Task</button>
             </div>
-            <ul class="list-group">
+            <ul class="list-group" v-if="toDoList != ''">
 
                 <li role="button" class="list-group-item" v-for="(object, index) in toDoList" :key="index">
                     <div class="d-flex justify-content-between">
@@ -44,11 +44,10 @@
                             class="fa-solid fa-xmark"></i>
                     </div>
                 </li>
-
-
-
-
             </ul>
+            <div class="alert alert-primary" role="alert" v-else>
+                Non ci sono task disponibili!!
+            </div>
         </div>
     </div>
 
