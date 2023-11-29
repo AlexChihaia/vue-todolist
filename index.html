@@ -37,10 +37,9 @@
             </div>
             <ul class="list-group">
 
-                <li role="button" class="list-group-item" v-for="(object, index) in toDoList" :key="index"
-                    @click="doneTask(index)">
+                <li role="button" class="list-group-item" v-for="(object, index) in toDoList" :key="index">
                     <div class="d-flex justify-content-between">
-                        <div :class="{'done' : object.done}">
+                        <div :class="{'done' : object.done}" @click="doneTask(index)">
                             {{index+1}} - {{object.task}}</div> <i role="button" @click="removeTask(index)"
                             class="fa-solid fa-xmark"></i>
                     </div>
