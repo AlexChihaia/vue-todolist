@@ -31,7 +31,8 @@
                 <label for="task-input" class="my-2">Insert your task</label>
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Task" id="task-input" v-model="newTask">
+                <input type="text" class="form-control" placeholder="Task" id="task-input" v-model="newTask"
+                    @keyup.enter="addTask">
                 <button class="btn btn-outline-secondary" type="button" id="add-task" @click="addTask">Add Task</button>
             </div>
             <ul class="list-group">
